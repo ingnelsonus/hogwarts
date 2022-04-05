@@ -1,0 +1,44 @@
+<div class="container">
+
+  <form class="form item">
+    <mat-form-field class="form_element">
+      <mat-label>Seleccione una casa de hechiceria</mat-label>
+      <mat-select
+      (selectionChange)="getPersonajes()"
+      [(value)]="selectedHouse"
+      name="CasaHechiceria"
+      required
+      #casa="ngModel"
+      [(ngModel)]="model.nameCasaHechiceria">
+        <mat-option [value]="casa" *ngFor="let casa of CasasHechiceria">
+          {{casa}}
+        </mat-option>
+      </mat-select>
+       </mat-form-field>
+      <section>
+       <div class="container_table">
+        <p>Listado de personajes casa de hechiceria: {{selectedHouse}}</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>patronus</th>
+              <th>age</th>
+              <th>image</th>
+            </tr>
+          </thead>
+      <tbody>
+        <tr>
+          <td>name...</td>
+          <td>patronus...</td>
+          <td>age...</td>
+          <td>image...</td>
+        </tr>
+      </tbody>
+      </table>
+      </div>
+    </section>
+
+  </form>
+
+</div>
