@@ -1,23 +1,18 @@
-<div class="container">
+<div class="contaier__button">
+  <button
+  mat-raised-button
+  color="primary"
+  (click)="goToSolicitudIngreso()"
+  >
+    Nueva Solicitud de ingreso
+  </button>
+</div>
 
+<div class="container">
   <form class="form item">
-    <mat-form-field class="form_element">
-      <mat-label>Seleccione una casa de hechiceria</mat-label>
-      <mat-select
-      (selectionChange)="getPersonajes()"
-      [(value)]="selectedHouse"
-      name="CasaHechiceria"
-      required
-      #casa="ngModel"
-      [(ngModel)]="model.nameCasaHechiceria">
-        <mat-option [value]="casa" *ngFor="let casa of CasasHechiceria">
-          {{casa}}
-        </mat-option>
-      </mat-select>
-       </mat-form-field>
       <section>
        <div class="container_table">
-        <p>Listado de personajes casa de hechiceria: {{selectedHouse}}</p>
+        <p>Listado de estudiantes:</p>
         <table class="table">
           <thead>
             <tr>
@@ -29,7 +24,7 @@
             </tr>
           </thead>
       <tbody>
-        <tr *ngFor="let item of personajes">
+        <tr *ngFor="let item of estudiantes">
           <td>{{item.name}}</td>
           <td>{{item.patronus}}</td>
           <td>

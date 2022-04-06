@@ -1,0 +1,82 @@
+<div class="contaier__button">
+  <button
+  [disabled]="!checkForm.form.valid"
+  mat-raised-button
+  color="primary"
+  type="submit"
+  (click)="onSubmit(checkForm)"
+  >
+    Enviar solicitud
+  </button>
+  </div>
+
+<div class="container">
+  <form class="form item" #checkForm="ngForm">
+    <h1>Solicitud de ingreso:</h1>
+    <mat-form-field class="form_element">
+      <input
+      matInput
+      placeholder="Name"
+      required
+      [(ngModel)]="model.name"
+      name="name"
+      #name="ngModel"
+      />
+      <mat-error *ngIf="!name.valid || name.pristine" >
+          El nombre es requerido.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form_element">
+      <input
+      matInput
+      placeholder="Email"
+      [(ngModel)]="model.Email"
+      Email="Email"
+      #Email="ngModel"
+      />
+      <mat-error *ngIf="!Email.valid || Email.pristine" >
+        El Email es requerido.
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form_element">
+        <input
+        matInput
+        placeholder="CellPhone"
+        [(ngModel)]="model.CellPhone"
+        CellPhone="CellPhone"
+        #CellPhone="ngModel"
+        />
+        <mat-error *ngIf="!CellPhone.valid || CellPhone.pristine" >
+            El CellPhone es requerido.
+        </mat-error>
+      </mat-form-field>
+
+      <section>
+        <div class="container_table">
+         <p>Listado de Solicitudes:</p>
+         <table class="table">
+           <thead>
+             <tr>
+              <th>Id</th>
+               <th>name</th>
+               <th>Email</th>
+               <th>CellPhoneNumber</th>
+               <th>requestDate</th>
+             </tr>
+           </thead>
+       <tbody>
+         <tr *ngFor="let item of solicitudes">
+           <td>{{item.id}}</td>
+           <td>{{item.name}}</td>
+           <td>{{item.Email}}</td>
+           <td>{{item.CellPhoneNumber}}</td>
+           <td>{{item.requestDate}}</td>
+         </tr>
+       </tbody>
+       </table>
+       </div>
+      </section>
+
+  </form>
+</div>
+

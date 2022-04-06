@@ -10,8 +10,8 @@ export class HeaderComponent implements OnInit {
 
   links = [
     {path:"personajes",label:"Personajes"},
-    {path:"personajes",label:"Estudiantes"},
-    {path:"personajes",label:"Profesores"}
+    {path:"estudiantes",label:"Estudiantes"},
+    {path:"profesores",label:"Profesores"},
   ];
   activeLink = this.links[0];
   background: ThemePalette = undefined;

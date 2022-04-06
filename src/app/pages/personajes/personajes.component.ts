@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PersonajeService} from './services/personaje.service';
+import {Personaje} from './interface/personaje.interface'
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-personajes',
@@ -12,15 +15,21 @@ export class PersonajesComponent implements OnInit {
   }
   CasasHechiceria :string []=['slytherin','gryffindor','ravenclaw','hufflepuff'];
   selectedHouse!:string;
+  personajes! :Personaje[];
+  currentYear:number = new Date().getFullYear();
 
-  constructor() { }
+  constructor(private personajeSvc:PersonajeService) { }
 
   ngOnInit(): void {
   }
 
   getPersonajes():void{
 
-    console.log('CasaHechiceera: ',this.selectedHouse);
+    this.personajeSvc.getPersonajes(this.selectedHouse)
+    .pipe(
+      tap((personajesResult:Personaje[]) =>this.personajes=personajesResult)
+      )
+    .subscribe();
 
   }
 
